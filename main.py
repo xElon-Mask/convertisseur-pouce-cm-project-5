@@ -18,12 +18,12 @@ cm_en_pouce = 0.394
 
 def conversion(unite):
     value_str = input(f"Rentrez la valeur à convertir en {unite}")
-    value_int = int(value_str)
+    value_float = float(value_str)
     if unite == "cm":
-        value_convert_cm = value_int * pouce_en_cm
+        value_convert_cm = value_float * pouce_en_cm
         return print("Cela donne " + str(value_convert_cm) + f" {unite}")
     else:
-        value_convert_pouce = value_int * cm_en_pouce
+        value_convert_pouce = round(value_float * cm_en_pouce)
         return print("Cela donne " + str(value_convert_pouce) + f" {unite}")
 
 start_program = True
