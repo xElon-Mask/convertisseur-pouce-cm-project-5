@@ -16,7 +16,18 @@ def effectuer_conversion(unit1: str, unit2: str, facteur: float):
     valeur_str = input(f"Conversion {unit1} -> {unit2}. Donnez la valeur en {unit1} (ou 'q' pour quitter) : ")
     if valeur_str == "q":
         return True
-    valeur_float = float(valeur_str)
+    try:
+        valeur_float = float(valeur_str)
+    except ValueError:
+        print("ERREUR: Vous devez rentrer une valeur numérique )
+        print("(utilisez le point et non la virgule pour les décimales)")
+        """
+        ici on utilise la récursion, on rappelle donc la même fonction pour
+        que l'user puisse sortir de l'erreur et retenter sa conversion avec des données
+        correctes
+        """
+        return effectuer_conversion(unit1, unit2, facteur)
+
     valeur_convertie = round(valeur_float * facteur, 2)
     print(f"Résultat de la conversion : {valeur_float} {unit1} = {valeur_convertie} {unit2}")
     return False
