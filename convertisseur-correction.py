@@ -10,8 +10,6 @@ Return :
 True : L'utilisateur ne veut plus convertir
 False : L'utilisateur a donné une valeur à convertir
 """
-
-# Conversion de unit1 vers unit2
 def effectuer_conversion(unit1: str, unit2: str, facteur: float):
     valeur_str = input(f"Conversion {unit1} -> {unit2}. Donnez la valeur en {unit1} (ou 'q' pour quitter) : ")
     if valeur_str == "q":
@@ -32,14 +30,15 @@ def effectuer_conversion(unit1: str, unit2: str, facteur: float):
     print(f"Résultat de la conversion : {valeur_float} {unit1} = {valeur_convertie} {unit2}")
     return False
 
-print("Ce programme vous permet d'effectuer des conversions d'unités")
-print("1 - Pouces vers cm")
-print("2 - cm vers pouces")
-choice = input("Votre choix (1 ou 2): ")
-if choice == "1":
-    effectuer_conversion("pouces", "cm", 2.54)
-if choice == "2":
-    effectuer_conversion("cm", "pouces", 0.394)
+
+while True:
+    print("Ce programme vous permet d'effectuer des conversions d'unités")
+    print("1 - Pouces vers cm")
+    print("2 - cm vers pouces")
+    choice = input("Votre choix (1 ou 2): ")
+    if  not (choice == "1" or choice == "2"):
+        print("ERREUR : Vous devez choisir 1 ou 2")
+ 
 
 
 """
